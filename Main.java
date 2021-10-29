@@ -7,17 +7,17 @@ public class Main{
         Scanner scn = new Scanner(System.in);
         System.out.println("enter the value of currency ");
     
-        float currency = scn.nextFloat();
+        double currency = scn.nextDouble();
         // converting the currency value into integer
         int n = (int) currency;
         
         // to get the value after the decimal
-        float decval =  ((currency-n)*100);
-        System.out.println(decval);
+        double decval =  ((currency-n)*100);
+        //System.out.println(decval);
         // storing the first two digits of those decimal values
         int dval = (int) decval; 
         
-        System.out.println(dval);
+       // System.out.println(dval);
         // if there is some decimal values than print it according the requirement
         if(dval !=0 && dval < 100) {
         System.out.println(convert(n) + " "+dval + "/100 ONLY");}
