@@ -10,10 +10,19 @@ public class Main{
         double currency = scn.nextDouble();
         // converting the currency value into integer
         int n = (int) currency;
-    
         
-        // printing the currency value
-        System.out.println(convert(n) + " ONLY" );
+        // to get the value after the decimal
+        double decval =  ((currency-n)*100);
+        // storing the first two digits of those decimal values
+        int dval = (int) decval; 
+        // if there is some decimal values than print it according the requirement
+        if(dval !=0) {
+        System.out.println(convert(n) + " "+dval + "/100 ONLY");}
+        // else print the no. with ONLY
+        else {
+            System.out.println(convert(n)+ " ONLY");
+        }
+
     }
     
     /* by the help of static we are calling the array  without 
@@ -41,6 +50,9 @@ public class Main{
             return "Minus" + convert(-n);
 
         }
+        else if(n==0){
+            return "";
+        }
         
         // when no is less than twenty
         
@@ -57,18 +69,22 @@ public class Main{
         // when no is less than 1000
 
         else if(n<1000){
-            return vtwenty[n/100] + " Hundred" +((n%100!=0)? " ":"") + convert(n%100);
+            return vtwenty[n/100] + " Hundred" +((n%100!=0)? " ":"") + "And "+convert(n%100);
             // if no is smaller than 1000 and greater than 100 add hundered after vtwenty[index]
             // calling convert function to get the rest of the values after having the values upto Hundred
         }
+
+        
         // when no is less than one Lakh
 
-        else if(n<100000){
+        else if(n<100000){  // here I am passing n/1000 in convert function so that we can get the first no.s in words
+            // after having those no. which have converted into words we add Thousand to it.
+            // similar concept work for no greater than lakh
             return convert(n/1000) + " Thousand" +((n%1000!=0)? " ":"") + convert(n%1000);
         }
         // when no is less than one Crore
 
-        else if(n<10000000){
+        else if(n<10000000){ 
             return convert(n/100000) + " Lakh" +((n%100000!=0)? " ":"") + convert(n%100000);
         }
         else {
