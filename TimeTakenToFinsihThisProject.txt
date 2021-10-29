@@ -2,3 +2,5 @@ High level thinking - 10 mins
 Coding - 40-45 mins
 Testing - 8-12 mins
 Overall time taken to complete the project - 1hr15mins
+Time taken to update the project - 15-20 mins
+
